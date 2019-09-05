@@ -24,9 +24,16 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe SessionsController, type: :controller do
-  let(:user) { User.new(name: 'Test User', email: 'test@user.com',
-                   password: '123456', password_confirmation: '123456')
- }
+  before(:each) do
+    @user = User.new(name: 'Test User', email: 'test@user.com',
+                     password: '123456', password_confirmation: '123456')
+  end
+
+ #
+ #  let(:user) { User.new(name: 'Test User', email: 'test@user.com',
+ #                   password: '123456', password_confirmation: '123456')
+ # }
+
 
   # This should return the minimal set of attributes required to create a valid
   # Session. As you add validations to Session, be sure to
@@ -49,18 +56,18 @@ RSpec.describe SessionsController, type: :controller do
       before(:each) do
         @user = User.new(name: 'Test User', email: 'test@user.com',
                          password: '123456', password_confirmation: '123456')
+        @user.save
       end
       it "renders a JSON response with the new session" do
-        p "USER:"
         p @user
-        p "USER.EMAIL"
-        p @user.emails
-        post :create, params: {session: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
-        expect(JSON.parse(response.body)).to eq(
-          "session_key" => User.last.session_key,
-          "user_id" => User.last.id
+        post :create, params: {session: {email: @user.email, password: @user.password}}
+
+        # expect(response).to have_http_status(:created)
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+        expect(JSON.parse(response.body)).to include(
+          # "session_key" => User.last.session_key,
+          # "id"=>User.last.id
+          "id"=>100
         )
       end
     end
