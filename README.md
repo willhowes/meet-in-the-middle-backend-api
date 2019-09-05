@@ -11,16 +11,22 @@ The base URL for all request is https://meet-in-the-middle-backend-api.herokuapp
 At the moment all routes are:
 
 ```
-GET /users - N/A
 POST /users - creates a new user
 
 GET /users/:id - returns a user JSON
 PATCH /users/:id - updates a user
 DELETE /users/:id - deletes a user
 ```
+
 ### POST /users 
 
-Body should contain a JSON like this:
+Header should contain:
+
+```
+Content-Type: application/json
+```
+
+Body should contain a JSON:
 
 ```
 {
@@ -33,7 +39,7 @@ Body should contain a JSON like this:
     }
 }
 ```
-And will return a JSON like this:
+And will return a JSON of created user from database:
 
 ```
 {
