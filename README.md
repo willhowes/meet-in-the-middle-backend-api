@@ -79,3 +79,87 @@ And will return a JSON of created user from database:
 }
 ```
 
+### PATCH /users/:id 
+
+URL should include User Id:
+
+```
+https://meet-in-the-middle-backend-api.herokuapp.com/users/2
+```
+
+Header should contain:
+
+```
+Content-Type: application/json
+```
+
+Body should contain a JSON of information you wise to update:
+
+```
+{
+    "user":
+    {
+    "name": "Test2update",
+    "email": "test2@test.com",
+    "password": "aaaaaaaaa",
+    "password_confirmation": "aaaaaaaaa"    
+    }
+}
+```
+
+And will return a JSON of user with update information from database:
+
+```
+{
+    "id": 2,
+    "name": "Test2update",
+    "email": "test2@test.com",
+    "password_digest": "$2a$12$G3/kSbciewIOWUi4/XxKwOKvDLbpQo8QbsbGHiERBjY9bgxMarh9C",
+    "created_at": "2019-09-05T12:33:56.750Z",
+    "updated_at": "2019-09-05T12:38:18.137Z"
+}
+```
+
+### DELETE /users/:id 
+
+URL should include User Id:
+
+```
+https://meet-in-the-middle-backend-api.herokuapp.com/users/2
+```
+
+Header should contain:
+
+```
+Content-Type: application/json
+```
+
+Body should contain a JSON of information you wise to update:
+
+```
+{
+    "user":
+    {
+    "name": "Test2update",
+    "email": "test2@test.com",
+    "password": "aaaaaaaaa",
+    "password_confirmation": "aaaaaaaaa"    
+    }
+}
+```
+
+And will return a JSON of user with update information from database:
+
+```
+{
+    "id": 2,
+    "name": "Test2update",
+    "email": "test2@test.com",
+    "password_digest": "$2a$12$G3/kSbciewIOWUi4/XxKwOKvDLbpQo8QbsbGHiERBjY9bgxMarh9C",
+    "created_at": "2019-09-05T12:33:56.750Z",
+    "updated_at": "2019-09-05T12:38:18.137Z"
+}
+```
+
+
+
