@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   before(:each) do
     @user = User.new(name: 'Test User', email: 'test@user.com',
                      password: '123456', password_confirmation: '123456')
+
   end
 
   it 'Should be valid.' do
