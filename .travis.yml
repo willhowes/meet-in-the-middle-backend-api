@@ -1,0 +1,13 @@
+language: ruby
+cache:
+- bundler
+services:
+- postgresql
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+deploy:
+  provider: heroku
+  api_key:
+    secure: MNezGjxEc1rrgahHNBNLV0dM+IHE3xu1NREol4c6Xc3K2ib6nxg8NCgMXm/lKpFmP9bxQXMH/+jSG4vT9nYbw15IvNAUhxJ/QM7r4kXae9JRY6tCiDylweWRoJ00oZpX/ulu0MWylNSrR8WDPq1TYug4q2Q6h7tL6vKeSJWWiolnagD2y6YAydMBbbB0VJIfCdyHdEg2P4lo3TanTyPCwb4cGOM7H8y22H2vvYbRfp4zLqnYi5VNk/0eH1BSQaedEJN5J537KU80VN1Z653LpmXuv/juK77+DD+N2diETv4CcZqlmfGdZ+0ypsOjD8Xvi99w7ZZXai5rA532HgElxIm0USZQ1D13xzp1hvtNM/knjRzcRRPoBklP8JYeuBL2jIBCdQJugzqUqX/UxU9VA1/DtUp728usoLilxIAfq+wJZibcuzeUSbYYWQVK9xtLQu4I2na2Gb68suhw+3o8qFOmrJUcI4le76LQNWO1D3AyNVSYPtCAhbdTM5WiGqdEDl3yf5kKwIk8bUh0wCWkvptxG2U+hIIHlAcx0x+aPU4ZOpeUB7N3Tkp76fbUxfe47ds798qVdkA/4EHqtwZ6jNOq/j8BVM/WH3ELWL4LL7+7acdjgoqpLQj4tIHdBQGL2fnTn3X7c7fUCBiBnm9Sb7gutHf6HL4UgaGfHhSXB1k=
+  app: meet-in-the-middle-backend-api
