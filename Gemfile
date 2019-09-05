@@ -47,3 +47,5 @@ gem "bcrypt", "~> 3.1.7"
 gem "json", "~> 2.2"
 
 gem "travis", "~> 1.8"
+
+gem "rubocop", "~> 0.74.0"
