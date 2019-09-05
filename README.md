@@ -51,3 +51,31 @@ And will return a JSON of created user from database:
    "updated_at": "2019-09-05T10:38:57.660Z"
 }
 ```
+
+### GET /users/:id 
+
+URL should include User Id:
+
+```
+https://meet-in-the-middle-backend-api.herokuapp.com/users/2
+```
+
+Header should contain:
+
+```
+Content-Type: application/json
+```
+
+And will return a JSON of created user from database:
+
+```
+{
+   "id": 2,
+   "name": "Test2",
+   "email": "test2@test.com",
+   "password_digest": "$2a$12$v2wHW7AtHCbq1zTh62Fyfe9e3TtGYsLLE0TgYEE.KD1bbOUTNN2W6",
+   "created_at": "2019-09-05T10:38:57.660Z",
+   "updated_at": "2019-09-05T10:38:57.660Z"
+}
+```
+
