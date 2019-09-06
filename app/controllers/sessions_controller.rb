@@ -1,15 +1,12 @@
 class SessionsController < ApplicationController
 
   def create
-
-    p params
-    p "params name and email"
-    p params[:session][:email]
     user = User
             .find_by(email: params[:session][:email])
             .try(:authenticate, params[:session][:password])
 
     if user
+      puts "all ok"
       session[:user_id] = user.id
       render json: {
         status: :created,
@@ -17,7 +14,9 @@ class SessionsController < ApplicationController
         user: user
       }
     else
-      render json: { status: 401 }
+      puts "error message"
+      # render json: { status: 401 }
+      render nothing: true, status: :unauthorized
     end
   end
 end
