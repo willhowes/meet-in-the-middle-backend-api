@@ -24,9 +24,9 @@ require 'rails_helper'
 # `rails-controller-testing` gem.
 
 RSpec.describe SessionsController, type: :controller do
-  let(:user) { User.new(name: 'Test User', email: 'test@user.com',
-                   password: '123456', password_confirmation: '123456')
- }
+ #  let(:user) { User.new(name: 'Test User', email: 'test@user.com',
+ #                   password: '123456', password_confirmation: '123456')
+ # }
 
   # This should return the minimal set of attributes required to create a valid
   # Session. As you add validations to Session, be sure to
@@ -46,21 +46,21 @@ RSpec.describe SessionsController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
-      before(:each) do
+      it "renders a JSON response with the new session" do
         @user = User.new(name: 'Test User', email: 'test@user.com',
                          password: '123456', password_confirmation: '123456')
-      end
-      it "renders a JSON response with the new session" do
+        @user.save!
         p "USER:"
         p @user
         p "USER.EMAIL"
-        p @user.emails
-        post :create, params: {session: valid_attributes}, session: valid_session
-        expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
+        p @user.email
+        post :create, params: {user: { email: @user.email, password: "123456" }}, session: valid_session
+        expect(response).to have_http_status(:ok)
+        expect(response.content_type).to eq("application/json; charset=utf-8")
         expect(JSON.parse(response.body)).to eq(
-          "session_key" => User.last.session_key,
-          "user_id" => User.last.id
+            status: :created,
+            logged_in: true,
+            user: @user
         )
       end
     end
