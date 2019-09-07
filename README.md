@@ -181,7 +181,7 @@ Body should contain a JSON of the user's email and password:
 }
 ```
 
-And will return a JSON in the following format:
+On success will return a JSON in the following format:
 
 ```
 {
