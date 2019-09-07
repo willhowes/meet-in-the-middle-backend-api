@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
             .try(:authenticate, params[:session][:password])
 
     if user
-      puts "all ok"
       session[:user_id] = user.id
       render json: {
         status: :created,
@@ -14,8 +13,6 @@ class SessionsController < ApplicationController
         user: user
       }
     else
-      puts "error message"
-      # render json: { status: 401 }
       render nothing: true, status: :unauthorized
     end
   end
