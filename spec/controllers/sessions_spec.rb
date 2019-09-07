@@ -24,10 +24,21 @@ RSpec.describe SessionsController, type: :controller do
         @user = User.new(name: 'Test User 2', email: 'test@user2.com',
                          password: '123456', password_confirmation: '123456')
         @user.save
-        p @user
         post :create, params: {session: {email: @user.email, password: "hello123"}}
         expect(response).to have_http_status(401)
       end
+    end
+  end
+
+  describe '#destroy' do
+    it "ends the current session succesfully" do
+      @user = User.new(name: 'Test User', email: 'test@user.com',
+                       password: '123456', password_confirmation: '123456')
+      @user.save
+      post :create, params: {session: {email: @user.email, password: @user.password}}
+      last_user_id = User.last.id
+      delete :destroy, params: { id: last_user_id }
+      expect(response).to have_http_status(:success)
     end
   end
 end
