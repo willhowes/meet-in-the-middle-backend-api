@@ -197,3 +197,21 @@ On success will return a JSON in the following format:
   }
 }
 ```
+
+### DELETE /sessions
+
+Destroys the current session
+
+Header should contain:
+
+```
+Content-Type: application/json
+```
+
+Body should contain a JSON of the user id:
+
+```
+{
+  "id": "1",
+}
+```
