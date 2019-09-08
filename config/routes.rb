@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+    resources :users
     resources :sessions, only: [:create, :destroy]
     resources :users, only: %i[create show] do
       get :avatar, on: :member
