@@ -40,5 +40,9 @@ RSpec.describe SessionsController, type: :controller do
       delete :destroy, params: { id: last_user_id }
       expect(response).to have_http_status(:success)
     end
+
+    it 'fails if no ID given' do
+      expect{ delete :destroy }.to raise_error(ActionController::UrlGenerationError)
+    end
   end
 end
