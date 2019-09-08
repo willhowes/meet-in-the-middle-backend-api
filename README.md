@@ -18,7 +18,10 @@ GET /users/:id - returns a user JSON
 PATCH /users/:id - updates a user
 DELETE /users/:id - deletes a user
 
+GET /users/[id]/avatar - returns a user's avatar
+
 POST /sessions - creates a new session
+DELER /sessions - destroys the current session
 ```
 
 ### POST /users
@@ -38,7 +41,7 @@ Body should contain a JSON:
   "name": "Test2",
   "email": "test2@test.com",
   "password": "aaaaaaaaa",
-  "password_confirmation": "aaaaaaaaa"
+  "password_confirmation": "aaaaaaaaa",
   "avatar": "[FILEPATH]"   
   }
 }
@@ -58,7 +61,7 @@ And will return a JSON of created user from database:
 
 ### GET /users/:id
 
-URL should include User Id:
+URL should include the user ID:
 
 ```
 https://meet-in-the-middle-backend-api.herokuapp.com/users/2
@@ -82,22 +85,28 @@ And will return a JSON of created user from database:
   "updated_at": "2019-09-05T10:38:57.660Z"
 }
 ```
+N.B. The user's avatar does not form part of JSON being returned. See below for how to request to get a user's avatar.
 
 ### PATCH /users/:id
 
-URL should include User Id:
+URL should include user ID:
 
 ```
 https://meet-in-the-middle-backend-api.herokuapp.com/users/2
 ```
 
-Header should contain:
+Header should contain (if not updating the user's avatar):
 
 ```
 Content-Type: application/json
 ```
+or, header should contain (if the user's avatar is being updated):
 
-Body should contain a JSON of information you wise to update:
+```
+Content-Type: multipart/form-data
+```
+
+Body should contain a JSON of information you wish to update:
 
 ```
 {
@@ -106,12 +115,13 @@ Body should contain a JSON of information you wise to update:
   "name": "Test2update",
   "email": "test2@test.com",
   "password": "aaaaaaaaa",
-  "password_confirmation": "aaaaaaaaa"    
+  "password_confirmation": "aaaaaaaaa",
+  "avatar": "[FILEPATH]"      
   }
 }
 ```
 
-And will return a JSON of user with update information from database:
+And will return a JSON of the user with updated information from the database (except an updated avatar which will not be returned):
 
 ```
 {
@@ -126,44 +136,13 @@ And will return a JSON of user with update information from database:
 
 ### DELETE /users/:id
 
-URL should include User Id:
+URL should include user ID:
 
 ```
 https://meet-in-the-middle-backend-api.herokuapp.com/users/2
 ```
 
-Header should contain:
-
-```
-Content-Type: application/json
-```
-
-Body should contain a JSON of information you wise to update:
-
-```
-{
-  "user":
-  {
-  "name": "Test2update",
-  "email": "test2@test.com",
-  "password": "aaaaaaaaa",
-  "password_confirmation": "aaaaaaaaa"    
-  }
-}
-```
-
-And will return a JSON of user with update information from database:
-
-```
-{
-  "id": 2,
-  "name": "Test2update",
-  "email": "test2@test.com",
-  "password_digest": "$2a$12$G3/kSbciewIOWUi4/XxKwOKvDLbpQo8QbsbGHiERBjY9bgxMarh9C",
-  "created_at": "2019-09-05T12:33:56.750Z",
-  "updated_at": "2019-09-05T12:38:18.137Z"
-}
-```
+Nothing returned, user is deleted.
 
 ### GET /users/[id]/avatar
 
@@ -173,6 +152,7 @@ Example:
 ```
 https://meet-in-the-middle-backend-api.herokuapp.com/users/2/avatar
 ```
+The avatar image is returned.
 
 ### POST /sessions
 
@@ -187,7 +167,7 @@ Body should contain a JSON of the user's email and password:
 ```
 {
   "email": "test@test.com",
-  "password": "123456",
+  "password": "123456"
 }
 ```
 
@@ -212,16 +192,8 @@ On success will return a JSON in the following format:
 
 Destroys the current session
 
-Header should contain:
+URL should include the an ID but this can be anything:
 
 ```
-Content-Type: application/json
-```
-
-Body should contain a JSON of the user id:
-
-```
-{
-  "id": "1",
-}
+https://meet-in-the-middle-backend-api.herokuapp.com/sessions/1
 ```
