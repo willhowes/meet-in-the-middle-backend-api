@@ -26,7 +26,7 @@ POST /sessions - creates a new session
 Header should contain:
 
 ```
-Content-Type: application/json
+Content-Type: multipart/form-data
 ```
 
 Body should contain a JSON:
@@ -38,7 +38,8 @@ Body should contain a JSON:
   "name": "Test2",
   "email": "test2@test.com",
   "password": "aaaaaaaaa",
-  "password_confirmation": "aaaaaaaaa"    
+  "password_confirmation": "aaaaaaaaa"
+  "avatar": "[FILEPATH]"   
   }
 }
 ```
@@ -162,6 +163,15 @@ And will return a JSON of user with update information from database:
   "created_at": "2019-09-05T12:33:56.750Z",
   "updated_at": "2019-09-05T12:38:18.137Z"
 }
+```
+
+### GET /users/[id]/avatar
+
+Needs to include the id of the user:
+
+Example:
+```
+https://meet-in-the-middle-backend-api.herokuapp.com/users/2/avatar
 ```
 
 ### POST /sessions
