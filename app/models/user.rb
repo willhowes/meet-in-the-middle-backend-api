@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_one_attached :avatar
+  has_many :favourites, dependent: :destroy
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
