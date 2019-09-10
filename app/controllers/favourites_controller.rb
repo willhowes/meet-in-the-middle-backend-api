@@ -9,6 +9,11 @@ class FavouritesController < ApplicationController
 
   # POST /favourites
   def create
+    #
+    # @location = Location.create(params[:lat, :long], session[:user_id])
+    @user = User.find(session[:user_id])
+    # @user.add_favourite_location(@location.id) ?
+
     @favourite = Favourite.create!(favourite_params)
     json_response(@favourite, :created)
   end

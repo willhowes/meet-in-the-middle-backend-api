@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+billy:
+  name: billy
+  email: billy@email.com
+  password: breath
+
+sally:
+  name: sally
+  email: sally@email.com
+  password: sniff

@@ -1,13 +1,16 @@
 require 'rails_helper'
 require 'favourites_spec_helper'
 
-RSpec.describe FavouritesController do
+RSpec.describe FavouritesController, :type => :request do
 
   describe 'POST /favourites' do
     # it "renders a JSON response with the new session" do
+    #   @user = User.new(name: 'Test User', email: 'test@user.com',
+    #                    password: '123456', password_confirmation: '123456')
+    #   @user.save
     #   @favourite = Favourite.new(location: 'Test', location_name: 'Work',
     #                    user_id: 1)
-    #   post :create, params: {favourite: {location: @favourite.location, location_name: @favourite.location_name, user_id: @favourite.user_id}}
+    #   post '/favourites', params: {favourite: {location: @favourite.location, location_name: @favourite.location_name, user_id: @favourite.user_id}}
     #   expect(response.content_name).to eq('application/json; charset=utf-8')
     #   last_favourite_id = Favourite.last.id
     #   parsed_response = JSON.parse(response.body)
@@ -15,9 +18,15 @@ RSpec.describe FavouritesController do
     # end
     subject { post '/favourites', params: valid_attributes }
 
-    let(:valid_attributes) { { favourite: { location: '50 Commercial St, Spitalfields, London E1 6LT, UK', location_name: 'Work', user_id: 1 } } }
+    let(:valid_attributes) { { favourite: { location: '50 Commercial St, Spitalfields, London E1 6LT, UK', location_name: 'Work' } } }
+
     context 'valid request' do
+
       it 'returns status created' do
+        @user = User.new(name: 'Test User', email: 'test@user.com',
+                         password: '123456', password_confirmation: '123456')
+        @user.save
+        post '/sessions', params: {session: {email: @user.email, password: @user.password}}
         subject
         expect(response).to have_http_status :created
       end
@@ -70,9 +79,11 @@ RSpec.describe FavouritesController do
 
   # Test suite for DELETE /favourites/:id
   describe 'DELETE /favourites/:id' do
-    before { delete "/favourites/#{favourite_id}" }
+    # before { delete "/favourites/:id" }
 
     it 'returns status code 204' do
+      @favourite = Favourite.find(params[:id])
+      @favourite.destroy
       expect(response).to have_http_status(204)
     end
   end
