@@ -15,7 +15,7 @@ RSpec.describe SessionsController, type: :controller do
         expect(response.content_type).to eq('application/json; charset=utf-8')
         last_user_id = User.last.id
         parsed_response = JSON.parse(response.body)
-        expect(parsed_response['user']['id']).to eq last_user_id
+        expect(parsed_response['id']).to eq last_user_id 
       end
     end
 
