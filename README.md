@@ -1,14 +1,40 @@
-# README
+[![Build Status](https://travis-ci.com/Timdavidcole/meet-in-the-middle-backend-api.svg?branch=master)](https://travis-ci.com/Timdavidcole/meet-in-the-middle-backend-api)
 
-This is the back-end for our final group project at Makers Academy, Meet In The Middle, a location app built in React and Rails.
+# 'meet in the midl' back-end API
 
-This is a simple backend API built in Rails for basic User CRUD and Sessions.
+This is the back-end API for our final group project at Makers Academy, 'meet In the midl' - a location app built in React (front-end) and Ruby on Rails (back-end).
+
+This is repository is for the back-end API built in Rails for basic User CRUD and Sessions.
 
 The front-end can be found [here](https://github.com/gennyallcroft/meet-in-the-middle-react-front-end)
+
+## How to Install
+Run the following in your command line:
+```
+git clone git@github.com:Timdavidcole/meet-in-the-middle-backend-api.git
+cd meet-in-the-middle-backend-api
+bundle install
+rails db:migrate
+```
+
+## How to run the tests
+Having clones the repository (see above) and moved into the project directory, run the following in your command line:
+```
+rspec
+```
 
 ## Usage
 
 The base URL for all requests is https://meet-in-the-middle-backend-api.herokuapp.com/
+
+Or to use locally run:
+
+```
+rails server -p 3001
+```
+and use the URL http://localhost:3001
+
+## API Routes
 
 The routes are:
 
@@ -197,3 +223,10 @@ URL should include the an ID but this can be anything:
 ```
 https://meet-in-the-middle-backend-api.herokuapp.com/sessions/1
 ```
+
+## Instructions on how to contribute to the project
+Clone the repo (see above)
+Submit a pull request on github.
+
+## Contact
+Please send a message on GitHub to the repository owner
