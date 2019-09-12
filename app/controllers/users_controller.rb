@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ActionController::Serialization
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
