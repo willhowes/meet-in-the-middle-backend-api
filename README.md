@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/Timdavidcole/meet-in-the-middle-backend-api.svg?branch=master)](https://travis-ci.com/Timdavidcole/meet-in-the-middle-backend-api)
 
-# 'meet in the midl' Back-end API
+# 'meet in the midl' back-end API
 
 This is the back-end API for our final group project at Makers Academy, 'meet In the midl' - a location app built in React (front-end) and Ruby on Rails (back-end).
 
