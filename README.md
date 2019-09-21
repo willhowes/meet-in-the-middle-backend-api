@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/Timdavidcole/meet-in-the-middle-backend-api.svg?branch=master)](https://travis-ci.com/Timdavidcole/meet-in-the-middle-backend-api)
+[![Build Status](https://travis-ci.com/willhowes/meet-in-the-middle-backend-api.svg?branch=master)](https://travis-ci.com/willhowes/meet-in-the-middle-backend-api)
 
 # 'meet in the midl' back-end API
 
@@ -6,7 +6,7 @@ This is the back-end API for our final group project at Makers Academy, 'meet In
 
 This is repository is for the back-end API built in Rails for basic User CRUD and Sessions.
 
-The front-end can be found [here](https://github.com/gennyallcroft/meet-in-the-middle-react-front-end)
+The front-end can be found [here](https://github.com/willhowes/meet-in-the-middle-react-front-end)
 
 ## How to Install
 Run the following in your command line:
@@ -25,7 +25,7 @@ rspec
 
 ## Usage
 
-The base URL for all requests is https://meet-in-the-middle-backend-api.herokuapp.com/
+The base URL for all requests is https://wh-meet-in-the-midl-back-end.herokuapp.com/
 
 Or to use locally run:
 
@@ -90,7 +90,7 @@ And will return a JSON of created user from database:
 URL should include the user ID:
 
 ```
-https://meet-in-the-middle-backend-api.herokuapp.com/users/2
+https://wh-meet-in-the-midl-back-end.herokuapp.com//users/2
 ```
 
 Header should contain:
@@ -118,7 +118,7 @@ N.B. The user's avatar does not form part of JSON being returned. See below for 
 URL should include user ID:
 
 ```
-https://meet-in-the-middle-backend-api.herokuapp.com/users/2
+https://wh-meet-in-the-midl-back-end.herokuapp.com//users/2
 ```
 
 Header should contain (if not updating the user's avatar):
@@ -165,7 +165,7 @@ And will return a JSON of the user with updated information from the database (e
 URL should include user ID:
 
 ```
-https://meet-in-the-middle-backend-api.herokuapp.com/users/2
+https://wh-meet-in-the-midl-back-end.herokuapp.com//users/2
 ```
 
 Nothing returned, user is deleted.
@@ -176,7 +176,7 @@ Needs to include the id of the user:
 
 Example:
 ```
-https://meet-in-the-middle-backend-api.herokuapp.com/users/2/avatar
+https://wh-meet-in-the-midl-back-end.herokuapp.com//users/2/avatar
 ```
 The avatar image is returned.
 
@@ -221,7 +221,7 @@ Destroys the current session
 URL should include the an ID but this can be anything:
 
 ```
-https://meet-in-the-middle-backend-api.herokuapp.com/sessions/1
+https://wh-meet-in-the-midl-back-end.herokuapp.com//sessions/1
 ```
 
 ## Instructions on how to contribute to the project
