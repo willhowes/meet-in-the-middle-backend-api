@@ -11,7 +11,7 @@ The front-end can be found [here](https://github.com/gennyallcroft/meet-in-the-m
 ## How to Install
 Run the following in your command line:
 ```
-git clone git@github.com:Timdavidcole/meet-in-the-middle-backend-api.git
+git clone git@github.com:willhowes/meet-in-the-middle-backend-api.git
 cd meet-in-the-middle-backend-api
 bundle install
 rails db:migrate
