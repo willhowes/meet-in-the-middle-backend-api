@@ -14,6 +14,7 @@ Run the following in your command line:
 git clone git@github.com:willhowes/meet-in-the-middle-backend-api.git
 cd meet-in-the-middle-backend-api
 bundle install
+rails db:setup
 rails db:migrate
 ```
 
