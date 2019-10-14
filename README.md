@@ -48,7 +48,7 @@ DELETE /users/:id - deletes a user
 GET /users/[id]/avatar - returns a user's avatar
 
 POST /sessions - creates a new session
-DELER /sessions - destroys the current session
+DELETE /sessions - destroys the current session
 ```
 
 ### POST /users
